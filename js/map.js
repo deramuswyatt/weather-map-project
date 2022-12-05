@@ -59,17 +59,18 @@ function updateWeather(coord) {
             let pressure = reports[i].main.pressure;
 
             html +=
-                '<div class="card"  style="width: 18rem;">' +
+                '<div class="card col">' +
                     '<div class="card-header">' + cardHead[0] + '</div>' +
                     '<ul class="list-group list-group-flush">' +
                         '<li class="list-group-item"><span>' + highTemp + '*F / ' + lowTemp + '*F</span><br><img src="https://openweathermap.org/img/w/' + iconCode + '.png" alt="Weather Icon"></li>' +
                         '<li class="list-group-item"><span>Description: ' + weatherDescription + '</span><br><span>Humidity: ' + humid + '%</span></li>' +
                         '<li class="list-group-item">Wind Speed: ' + windSpeed + 'mph</li>' +
                         '<li class="list-group-item">Pressure: ' + pressure + 'psi</li>' +
-                    '</ul>'
+                    '</ul>' +
             '</div>'
 
         }
+//        bootstrap class text-align
 //inputting the card container inside the cards using .html method
         cardContainer.html(html);
     });
