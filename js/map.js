@@ -15,18 +15,18 @@ $.get("http://api.openweathermap.org/data/2.5/weather", {
     units: "imperial"
 }).done(function(data) {
     console.log("current weather", data);
-    let description = data.weather[0].description
-    let humidity = data.main.humidity
-    let wind = data.wind.speed
-    let pressure = data.main.pressure
-    let temp = data.main.temp_max + "/" + data.main.temp_min
+        let description = data.weather[0].description
+        let humidity = data.main.humidity
+        let wind = data.wind.speed
+        let pressure = data.main.pressure
+        let temp = data.main.temp_max + "/" + data.main.temp_min
 
 
-    $("#temp").html("Temperature: " + temp)
-    $("#descr").html("Description: " + description)
-    $("#hum").html("Humidity: " + humidity)
-    $("#win").html("Wind: " + wind)
-    $("#press").html("Pressure: " + pressure)
+        $("#temp").html("Temperature: " + temp)
+        $("#descr").html("Description: " + description)
+        $("#hum").html("Humidity: " + humidity)
+        $("#win").html("Wind: " + wind)
+        $("#press").html("Pressure: " + pressure)
 
 });
 
@@ -49,7 +49,7 @@ function updateWeather(coord) {
             // should get 5 objects back
             console.log(reports[i]);
 
-            let cardHead = reports[i].dt_txt.split(' ');
+            let dateTime = reports[i].dt_txt.split(' ');
             let highTemp = reports[i].main.temp_max;
             let lowTemp = reports[i].main.temp_min;
             let iconCode = reports[i].weather[0].icon;
@@ -59,17 +59,16 @@ function updateWeather(coord) {
             let pressure = reports[i].main.pressure;
 
             html +=
-                //card creation which are columns(
+                //card creation which are columns from bootstrap(
                 '<div class="card col">' +
-                    '<div class="card-header">' + cardHead[0] + '</div>' +
-                    '<ul class="list-group list-group-flush">' +
-                        '<li class="list-group-item"><span>' + highTemp + '&deg; / ' + lowTemp + '&deg;</span><br><img src="https://openweathermap.org/img/w/' + iconCode + '.png" alt="Weather Icon"></li>' +
-                        '<li class="list-group-item"><span>Description: ' + weatherDescription + '</span><br><span>Humidity: ' + humid + '%</span></li>' +
-                        '<li class="list-group-item">Wind Speed: ' + windSpeed + 'mph</li>' +
-                        '<li class="list-group-item">Pressure: ' + pressure + 'psi</li>' +
-                    '</ul>' +
-            '</div>'
-
+                    '<div class="card-header">' + dateTime[0] + '</div>' +
+                        '<ul class="list-group list-group-flush">' +
+                            '<li class="list-group-item"><span>' + highTemp + '&deg; / ' + lowTemp + '&deg;</span><br><img src="https://openweathermap.org/img/w/' + iconCode + '.png" alt="Weather Icon"></li>' +
+                            '<li class="list-group-item"><span>Description: ' + weatherDescription + '</span><br><span>Humidity: ' + humid + '%</span></li>' +
+                            '<li class="list-group-item">Wind Speed: ' + windSpeed + 'mph</li>' +
+                            '<li class="list-group-item">Pressure: ' + pressure + 'psi</li>' +
+                        '</ul>' +
+                '</div>'
         }
 //inputting the card container inside the cards using .html method
         cardContainer.html(html);
