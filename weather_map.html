@@ -15,9 +15,11 @@
     <style>
         #map {
             /* the width and height may be set to any size */
+            /*i left it default*/
             width: 99%;
             height: 700px;
         }
+        /*shows how coordinates popup on map*/
         .coordinates {
             background: rgba(0, 0, 0, 0.5);
             color: #fff;
@@ -40,7 +42,7 @@
 <nav class="navbar bg-light">
     <div class="container-fluid" id="app">
         <span class="navbar-brand mb-0 h1">Weather App</span>
-        <span id="city">Current city San Antonio</span>
+        <span id="city">Current city Cibolo</span>
     </div>
 <!--    navbar for searching city-->
     <nav class="navbar bg-light col-lg-12 col-sm-4 mb-2">
@@ -54,9 +56,9 @@
     </nav>
 </nav>
 
-<!--container, row, columns for bootstrap -->
+<!--container, row, columns for bootstrap mandatory!!! -->
 <!--card container from JS file-->
-<div class="container">
+<div class="container text-center">
 <div id="card-holder" class="row"></div>
 </div>
 
